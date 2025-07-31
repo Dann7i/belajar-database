@@ -1,0 +1,22 @@
+{
+  "name": "halaman",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./database/backend/server.js",
+  "scripts": {
+    "dan": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.3",
+    "nodemon": "^3.1.10"
+  }
+}
