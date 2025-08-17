@@ -15,6 +15,16 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  const sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+  connection.query(sql, [username, password], (err, results) => {
+    if(err) {
+      console.error("error saat kueri database: ", err)
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`berhasil terhubung ke port: ${port}`)
 })
