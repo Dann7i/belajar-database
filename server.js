@@ -24,6 +24,9 @@ app.post("/login", (req, res) => {
       res.status(500).json({ success: false, message: "terjadi kesalahan server"});
       return;
     }
+    if(results.lenght > 0 ) {
+      
+    }
   })
 })
 
