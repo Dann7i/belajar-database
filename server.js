@@ -26,6 +26,8 @@ app.post("/login", (req, res) => {
     }
     if(results.lenght > 0 ) {
       res.json({ success: true, message: `halo,  ${username}! login berhasil..`})
+    } else {
+      res.json({ success: false, message: "Username atau password salah." });
     }
   })
 })
