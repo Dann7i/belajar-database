@@ -20,7 +20,9 @@ app.post("/login", (req, res) => {
   const sql = "SELECT * FROM users WHERE username = ? AND password = ?";
   connection.query(sql, [username, password], (err, results) => {
     if(err) {
-      console.error("error saat kueri database: ", err)
+      console.error("error saat kueri database: ", err);
+      res.status(500).json({ success: false, message: "terjadi kesalahan server"});
+      return;
     }
   })
 })
