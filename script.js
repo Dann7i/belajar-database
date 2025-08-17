@@ -7,11 +7,26 @@ form.addEventListener("submit", function(event) {
   const password = document.getElementById("password").value;
   const message = document.getElementById("message");
 
-  if(username === "wildan") {
-    message.textContent = "Halo, " + username + "! Login berhasil.";
-    message.style.color = "green";
-  } else {
-    message.textContent = "Username tidak ditemukan.";
+  fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, password }), 
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      message.textContent = data.message;
+      message.style.color = "green";
+    } else {
+      message.textContent = data.message;
+      message.style.color = "red";
+    }
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+    message.textContent = "Koneksi ke server gagal.";
     message.style.color = "red";
-  }
+  });
 });
