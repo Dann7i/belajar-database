@@ -25,7 +25,7 @@ app.post("/login", (req, res) => {
       return;
     }
     if(results.lenght > 0 ) {
-      
+      res.json({ success: true, message: `halo,  ${username}! login berhasil..`})
     }
   })
 })
